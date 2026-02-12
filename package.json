@@ -4,7 +4,7 @@
   "description": "Notification Mock",
   "main": "app.js",
   "scripts": {
-  "test": "mocha * --exit",
+  "test": "mocha .* --exit",
   "start": "node index.js",
   "dev": "nodemon index.js",
   "build": "echo 'No build needed for this project'"
