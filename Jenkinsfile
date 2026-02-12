@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     // แก้เป็นตัวเล็ก และใช้ขีดกลาง (-) แทน Underscore (_)
-    VERCEL_PROJECT_NAME = 'simple-nodejs'
+    VERCEL_PROJECT_NAME = 'devops28'
     VERCEL_TOKEN = credentials('devops28-vercel-token')
 }
    agent {
@@ -13,7 +13,7 @@ kind: Pod
 spec:
   containers:
   - name: my-builder
-    image: node:18-alpine
+    image: node:20-alpine
     command:
     - cat
     tty: true
@@ -35,7 +35,6 @@ spec:
       steps {
         container('my-builder') {
           sh 'npm ci'
-          sh 'npm run build'
         }
       }
     }
@@ -43,7 +42,9 @@ spec:
     stage('Test Build') {
       steps {
         container('my-builder') {
+          sh 'npm ci'
           sh 'npm run test'
+
         }
       }
     }
