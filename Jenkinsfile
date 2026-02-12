@@ -35,6 +35,7 @@ spec:
       steps {
         container('my-builder') {
           sh 'npm ci'
+          sh 'npm run build'
         }
       }
     }
@@ -42,7 +43,7 @@ spec:
     stage('Test Build') {
       steps {
         container('my-builder') {
-          sh 'npm test'
+          sh 'npm run test'
         }
       }
     }
