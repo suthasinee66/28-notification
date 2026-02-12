@@ -13,7 +13,7 @@ kind: Pod
 spec:
   containers:
   - name: my-builder
-    image: node:20-alpine
+    image: node:18-alpine
     command:
     - cat
     tty: true
